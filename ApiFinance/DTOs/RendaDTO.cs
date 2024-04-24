@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace ApiFinance.DTOs
 {
-    public class CategoriaDTO
+    public class RendaDTO
     {
         public int Id { get; set; }
-
+        
         [Required(ErrorMessage = "O Nome é requerido")]
         [MinLength(3)]
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string? Nome { get; set; }
-
-        [Required(ErrorMessage = "O Nome da cor é requerido")]
-        [MinLength(3)]
-        [MaxLength(100)]
-        public string? Cor { get; set; }
+        public double Valor { get; set; }
+        public DateTime DtCadastro { get; set; }
     }
 }
