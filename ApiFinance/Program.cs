@@ -33,7 +33,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-c.SwaggerDoc("v1", new OpenApiInfo { Title = "apimangas", Version = "v1" });
+c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiFinance", Version = "v1" });
 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
 {
     Name = "Authorization",
