@@ -10,7 +10,7 @@ namespace ApiFinance.Repositories
 {
     public class RendaRepository : Repository<Renda>, IRendaRepository
     {        
-        protected RendaRepository(AppDbContext db) : base(db)
+        public RendaRepository(AppDbContext db) : base(db)
         {
         }
     }

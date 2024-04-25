@@ -55,6 +55,10 @@ namespace ApiFinance.Context
             builder.Entity<Despesas>().Property(p => p.Nome).HasMaxLength(200).IsRequired();
             builder.Entity<Despesas>().Property(p => p.Valor).IsRequired().HasPrecision(10, 2);
 
+            builder.Entity<Renda>().HasKey(r => r.Id);
+            builder.Entity<Renda>().Property(r => r.Nome).HasMaxLength(200).IsRequired();
+            builder.Entity<Renda>().Property(r => r.DtCadastro).IsRequired();
+
             // Define o comportamento de exclusão de todas as chaves estrangeiras
             // no modelo de dados como ClientSetNull, para que a exclusão de uma
             // entidade relacionada resulte na definição dos valores das chaves

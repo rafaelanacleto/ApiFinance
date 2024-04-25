@@ -15,7 +15,7 @@ namespace ApiFinance.Repositories
 
         protected readonly AppDbContext _db;
         protected readonly DbSet<TEntity> DbSet;
-        protected Repository(AppDbContext db)
+        protected Repository(AppDbContext db)   
         {
             _db = db;
             DbSet = db.Set<TEntity>();

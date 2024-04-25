@@ -10,7 +10,7 @@ namespace ApiFinance.Repositories
 {
     public class DespesasRepository : Repository<Despesas>, IDespesaRepository
     {        
-        protected DespesasRepository(AppDbContext db) : base(db)
+        public DespesasRepository(AppDbContext db) : base(db)
         {
         }
     }

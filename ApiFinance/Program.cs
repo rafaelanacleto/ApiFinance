@@ -66,9 +66,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
          options.UseSqlite(connection,
              b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
-builder.Services.AddScoped<IDespesaRepository, DespesasRepository>();
-builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
-builder.Services.AddScoped<IRendaRepository, RendaRepository>();
+builder.Services.AddTransient<IDespesaRepository, DespesasRepository>();
+builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddTransient<IRendaRepository, RendaRepository>();
 builder.Services.AddAutoMapper(typeof(DomainToDTOProfile));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
