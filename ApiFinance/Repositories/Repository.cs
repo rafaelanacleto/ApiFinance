@@ -22,29 +22,34 @@ namespace ApiFinance.Repositories
         }
 
 
-        public Task AddAsync(TEntity entity)
+        public async Task AddAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            DbSet.Add(entity);
+            await _db.SaveChangesAsync();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _db?.Dispose();
         }
 
-        public Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var entities = await DbSet.ToListAsync();
+            return entities;
         }
 
-        public Task<TEntity> GetByIdAsync(int? id)
+        public async Task<TEntity> GetByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            var entity = await DbSet.FindAsync(id);
+            return entity;
         }
 
-        public Task RemoveAsync(int? id)
+        public async Task RemoveAsync(int? id)
         {
-            throw new NotImplementedException();
+            var entity = await DbSet.FindAsync(id);
+            DbSet.Remove(entity);
+            await _db.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<TEntity>> SearchAsync(Expression<Func<TEntity, bool>> predicate)
@@ -52,9 +57,10 @@ namespace ApiFinance.Repositories
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
 
-        public Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            DbSet.Update(entity);
+            await _db.SaveChangesAsync();
         }
     }
 }
