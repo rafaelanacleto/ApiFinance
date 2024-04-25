@@ -45,9 +45,7 @@ namespace ApiFinance.Controllers
             var categoria = _mapper.Map<Categoria>(categoriaDto);
 
             await _categoriaRepository.AddAsync(categoria);
-
-            return new CreatedAtRouteResult("GetCategoria", new { id = categoriaDto.Id },
-                categoriaDto);
+            return new CreatedAtRouteResult("GetCategoria", new { id = categoriaDto.Id }, categoriaDto);
         }
 
         [HttpGet("{id:int}", Name = "GetCategoria")]
@@ -75,7 +73,6 @@ namespace ApiFinance.Controllers
             var categoria = _mapper.Map<Categoria>(categoriaDto);
 
             await _categoriaRepository.UpdateAsync(categoria);
-
             return Ok(categoriaDto);
         }
 
@@ -89,10 +86,8 @@ namespace ApiFinance.Controllers
             }
 
             await _categoriaRepository.RemoveAsync(id);
-
             return Ok(categoria);
         }
-
 
     }
 }
