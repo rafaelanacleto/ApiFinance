@@ -10,14 +10,14 @@ namespace ApiFinance.DTOs
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "O Nome é requerido")]
-        [MinLength(3)]
-        [MaxLength(100)]
+        //[Required(ErrorMessage = "O Nome é requerido")]
+        //[MinLength(3)]
+        //[MaxLength(100)]
         public string? Nome { get; set; }
 
-        [Required(ErrorMessage = "O Nome da cor é requerido")]
-        [MinLength(3)]
-        [MaxLength(100)]
+        //[Required(ErrorMessage = "O Nome da cor é requerido")]
+        //[MinLength(3)]
+        //[MaxLength(100)]
         public string? Cor { get; set; }
     }
 }

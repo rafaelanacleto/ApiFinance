@@ -18,9 +18,7 @@ namespace ApiFinance.Mappings
 
             // cria um mapeamento entre a classe Manga e a classe MangaCategoriaDTO.
             // O mapeamento especifica que a propriedade NomeCategoria do DTO será
-            // mapeada a partir da propriedade Nome da propriedade Categoria do objeto Manga.
-            CreateMap<Despesas, DespesasDTO>()
-                .ForMember(dto => dto.Nome, opt => opt.MapFrom(src => src.Categoria.Nome));
+            // mapeada a partir da propriedade Nome da propriedade Categoria do objeto Manga
 
         }
     }

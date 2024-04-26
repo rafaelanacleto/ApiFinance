@@ -27,7 +27,7 @@ public class DespesasController : ControllerBase
         if (despesas is null)
             return NotFound("Despesa não encontrada");
 
-        var despesasDto = _mapper.Map<IEnumerable<DespesasDTO>>(despesas);
+        var despesasDto = _mapper.Map<IEnumerable<DespesasDTO>>(despesas.Result);
         return Ok(despesasDto);
     }
 
