@@ -6,12 +6,14 @@ using ApiFinance.DTOs;
 using ApiFinance.Entities;
 using ApiFinance.Repositories.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiFinance.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class CategoriasController : ControllerBase
     {
         private readonly ICategoriaRepository _categoriaRepository;

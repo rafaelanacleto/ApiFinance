@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiFinance.DTOs;
+using ApiFinance.Entities;
 using ApiFinance.Repositories.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +35,31 @@ namespace ApiFinance.Controllers
             return Ok(rendaDTOs);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] RendaDTO rendaDto)
+        {
+            if (rendaDto == null)
+                return BadRequest("Dados inválidos");
 
-        
+            var renda = _mapper.Map<Renda>(rendaDto);
 
+            await _repository.AddAsync(renda);
+            return new CreatedAtRouteResult("GetRenda", new { id = rendaDto.Id }, rendaDto);
+        }
+
+
+        [HttpGet("{id:int}", Name = "GetRenda")]
+        public async Task<ActionResult<RendaDTO>> Get(int id)
+        {
+            var renda = await _repository.GetByIdAsync(id);
+
+            if (renda is null)
+                return NotFound("renda não encontrada");
+
+            var despeDto = _mapper.Map<RendaDTO>(renda);
+
+            return Ok(despeDto);
+        }
 
 
 
