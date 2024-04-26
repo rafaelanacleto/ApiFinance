@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiFinance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240425185353_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240426223043_InicialFinance")]
+    partial class InicialFinance
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -312,7 +312,7 @@ namespace ApiFinance.Migrations
             modelBuilder.Entity("ApiFinance.Entities.Despesas", b =>
                 {
                     b.HasOne("ApiFinance.Entities.Categoria", "Categoria")
-                        .WithMany("Despesas")
+                        .WithMany()
                         .HasForeignKey("CategoriaId")
                         .IsRequired();
 
@@ -362,11 +362,6 @@ namespace ApiFinance.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ApiFinance.Entities.Categoria", b =>
-                {
-                    b.Navigation("Despesas");
                 });
 #pragma warning restore 612, 618
         }

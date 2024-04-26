@@ -309,7 +309,7 @@ namespace ApiFinance.Migrations
             modelBuilder.Entity("ApiFinance.Entities.Despesas", b =>
                 {
                     b.HasOne("ApiFinance.Entities.Categoria", "Categoria")
-                        .WithMany("Despesas")
+                        .WithMany()
                         .HasForeignKey("CategoriaId")
                         .IsRequired();
 
@@ -359,11 +359,6 @@ namespace ApiFinance.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ApiFinance.Entities.Categoria", b =>
-                {
-                    b.Navigation("Despesas");
                 });
 #pragma warning restore 612, 618
         }

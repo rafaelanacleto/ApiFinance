@@ -36,10 +36,10 @@ namespace ApiFinance.Context
             builder.Entity<Categoria>().
               Property(p => p.Cor).HasMaxLength(100).IsRequired();
 
-            // 1 : N => Categoria : Mangas
-            builder.Entity<Categoria>().HasMany(c => c.Despesas)
-                .WithOne(b => b.Categoria)
-                .HasForeignKey(b => b.CategoriaId);
+            // // 1 : N => Categoria : Mangas
+            // builder.Entity<Categoria>().HasMany(c => c.Despesas)
+            //     .WithOne(b => b.Categoria)
+            //     .HasForeignKey(b => b.CategoriaId);
 
             //define os dados iniciais para a entidade Categoria
             builder.Entity<Categoria>().HasData(

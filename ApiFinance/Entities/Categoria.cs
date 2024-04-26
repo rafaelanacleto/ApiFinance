@@ -37,7 +37,5 @@ namespace ApiFinance.Entities
             Cor = cor;
         }
 
-        public IEnumerable<Despesas>? Despesas { get; set; }
-
     }
 }
