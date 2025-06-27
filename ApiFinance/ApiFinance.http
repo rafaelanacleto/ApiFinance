@@ -1,4 +1,4 @@
-@ApiFinance_HostAddress = http://localhost:5276
+@ApiFinance_HostAddress = http://localhost:5094
 
 GET {{ApiFinance_HostAddress}}/weatherforecast/
 Accept: application/json

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace ApiFinance.Entities
+namespace ApiFinance.Model
 {
     public class ApplicationUser : IdentityUser
     {
